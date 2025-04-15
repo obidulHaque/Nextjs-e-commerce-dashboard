@@ -1,8 +1,13 @@
-export default function Home() {
+import { MainModal } from "@/components/UI/MainModal";
+import { auth } from "@clerk/nextjs/server";
+
+export default async function Home() {
+  const { userId } = await auth();
+  console.log(userId);
   return (
     <>
-      <div className="bg-zinc-950 text-white ">
-        <p>hello world </p>
+      <div>
+        <MainModal />
       </div>
     </>
   );
